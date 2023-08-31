@@ -1,0 +1,67 @@
+$gray-lightest: #f1f2f3 !default;
+$brand-primary: #3f87f5 !default;
+
+@font-face {
+  font-family: "anticon";
+  src: asset-url("anticon.eot");
+  src: asset-url("anticon.eot?#iefix") format("embedded-opentype"),
+    asset-url("anticon.woff") format("woff"),
+    asset-url("anticon.ttf") format("truetype"),
+    asset-url("anticon.svg#anticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.table-striped {
+  >tbody {
+    >tr {
+      &:nth-of-type(odd) {
+        background-color: lighten($gray-lightest, 0.5%);
+      }
+    }
+  }
+}
+
+a.btn.btn-primary {
+  padding-top: 0.7rem !important;
+  color: $brand-primary !important;
+
+  &:hover {
+    color: white !important;
+  }
+}
+
+.fixed-right {
+  .icon {
+    font-size: 30px;
+    left: 0px;
+    top: 16px;
+    position: absolute;
+  }
+}
+
+@for $i from 20 through 300 {
+  .w-#{$i}px {
+    width: #{$i}px;
+  }
+}
+
+@for $i from 40 through 100 {
+  .vh-#{$i} {
+    height: #{$i}vh;
+  }
+  .wh-#{$i} {
+    width: #{$i}vh;
+  }
+}
+
+.break-task {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#toast-success, #toast-warning, #toast-danger {
+  z-index: 10000;
+}

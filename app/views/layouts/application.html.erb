@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebGame</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <!-- <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main> -->
+    <div class="app">
+      <div class="layout">
+        <!-- Header START -->
+        <%= render "layouts/shared/header" %>
+        <%= turbo_frame_tag "toast" %>
+
+        <% flash.each do |type, msg| %>
+          <%= render partial: "shared/toast_#{type}", locals: { message: msg }%>
+        <% end %>
+        
+        <!-- Header END -->
+
+        <!-- Side Nav START -->
+        <%= render "layouts/shared/navi" %>
+        <!-- Side Nav END -->
+
+        <!-- Page Container START -->
+        <div class="page-container">
+          <!-- Content Wrapper START -->
+          <div class="main-content">
+            <%= yield %>
+          </div>
+          <!-- Content Wrapper END -->
+
+          <!-- Footer START -->
+          <%#= render "layouts/shared/footer" %>
+          <!-- Footer END -->
+
+        </div>
+        <!-- Page Container END -->
+
+        <!-- Detail task START-->
+        <%= turbo_frame_tag "task-show"%>
+        <!-- Detail task END-->
+      </div>
+    </div>
+  </body>
+</html>
