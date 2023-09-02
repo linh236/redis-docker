@@ -81,3 +81,5 @@ gem "devise-tailwindcssed", "~> 0.1.5"
 gem "active_model_serializers", "~> 0.10.13"
 
 gem "byebug", "~> 11.1"
+
+gem "rack-cors", "~> 2.0"
