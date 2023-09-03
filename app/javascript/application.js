@@ -7,3 +7,4 @@ import jQuery from "jquery"
 import "flowbite"
 
 window.$ = window.jQuery = jQuery;
+import "./channels"

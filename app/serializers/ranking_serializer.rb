@@ -1,11 +1,12 @@
-class RankingSerializer < ActiveModel::Serializer
-  attributes :id, :level, :score, :timing, :created_at, :updated_at, :user, :game
+class RankingSerializer < BaseSerializer
+  include ApplicationHelper
+  attributes :id, :level, :score, :timing, :created_at, :updated_at, :player, :game
 
-  def user 
-    object.user
+  def player 
+    UserSerializer.new(object.user)
   end
 
   def game 
-    object.game
+    GameSerializer.new(object.game)
   end
 end
