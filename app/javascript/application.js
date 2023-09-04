@@ -4,5 +4,7 @@ import "controllers"
 import "trix"
 import "@rails/actiontext"
 import jQuery from "jquery"
+import "flowbite"
 
 window.$ = window.jQuery = jQuery;
+import "./channels"

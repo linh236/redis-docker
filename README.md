@@ -19,6 +19,7 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* docker build -t redis_image ./redis/.
+docker run --network rails --name redis_app -p 6400:6400 -d redis_image
 
 * ...

@@ -9,6 +9,7 @@ services:
       - "5432:5432"
   app:
     build: .
+    image: web_game:latest
     container_name: web_game_app
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
@@ -17,9 +18,24 @@ services:
       - .app.env
     links:
       - db
+      - redis
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - redis
+    stdin_open: true
     tty: true
-    #command: puma
+    networks: 
+      - web_game_network
+    
+  redis:
+    image: 'redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - web_game_network
+
+networks:
+  web_game_network:
+    driver: bridge

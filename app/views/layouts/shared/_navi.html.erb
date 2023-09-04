@@ -11,47 +11,23 @@
               <span class="title">Dashboard</span>
               <% end %>
           </li>
-          <li class="nav-item dropdown">
-            <%= link_to rooms_path do %>
-              <span class="icon-holder">
-                <i class="anticon anticon-message"></i>
-              </span>
-              <%= turbo_stream_from "un-mark-read-message"%>
-              <span class="title">Messages</span>
-              <% end %>
-          </li>
-          <% if @current_project.present? %>
-            <li class="nav-item dropdown">
-              <%= link_to meetings_path do %>
-                <span class="icon-holder">
-                  <i class="anticon anticon-calendar"></i>
-                </span>
-                <span class="title">Calendar</span>
-              <% end %>
-            </li>
-          <% end %>
+         
           <li class="nav-item dropdown pointer">
             <a class="dropdown-toggle" data-action="click->nav#toggle">
               <span class="icon-holder">
                 <i class="anticon anticon-pie-chart"></i>
               </span>
-              <span class="title">Projects (<%=@projects.size%>)</span>
+              <span class="title">abc</span>
               <span class="arrow">
                 <i class="arrow-icon"></i>
               </span>
             </a> 
             <ul class="dropdown-menu">
-              <% if @projects.empty? %>
-                <p class="text-center">Please add project.</p>
-              <% else %>
-                <% @projects.each do |p| %>
-                  <li class="<%= 'active' if p.active %>"><%= link_to p.project&.name, project_path(p.project_id) %></li>
-                <% end %>
-              <% end %>
+              <li class="nav-item active">Test</li>
             </ul>
           </li>
           <li class="text-center">
-            <%= link_to "Add Project", new_project_path, class: "btn btn-primary btn-tone hover:text-white m-r-20 m-t-20" %>
+            <%= link_to "New Game", '', class: "btn btn-primary btn-tone hover:text-white m-r-20 m-t-20" %>
           </li>
         <% else %>
           <li class="text-center">

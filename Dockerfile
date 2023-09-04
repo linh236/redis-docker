@@ -9,4 +9,5 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ADD . .
 RUN chmod 777 ./entrypoint.sh
 RUN ./entrypoint.sh
+RUN chown -R $USER:$USER .
 CMD ["rails", "server", "-b", "0.0.0.0"]
