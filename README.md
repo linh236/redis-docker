@@ -5,21 +5,126 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* The error
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* docker build -t redis_image ./redis/.
-docker run --network rails --name redis_app -p 6400:6400 -d redis_image
+```
+ | #<Thread:0x00007fc82bfd3fb8 /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:160 run> terminated with exception (report_on_exception is true):
+web_game_app      | /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:398:in `rescue in establish_connection': Error connecting to Redis on localhost:6379 (Errno::EADDRNOTAVAIL) (Redis::CannotConnectError)
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:379:in `establish_connection'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:115:in `block in connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:114:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:325:in `with_socket_timeout'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:174:in `call_loop'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:44:in `subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:14:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:288:in `_subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:20:in `block in subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:19:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:92:in `block in listen'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:95:in `block in with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:94:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:101:in `without_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:89:in `listen'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:165:in `block in ensure_listener_running'
+web_game_app      | /usr/local/lib/ruby/3.1.0/socket.rb:1214:in `__connect_nonblock': Cannot assign requested address - connect(2) for [::1]:6379 (Errno::EADDRNOTAVAIL)
+web_game_app      | 	from /usr/local/lib/ruby/3.1.0/socket.rb:1214:in `connect_nonblock'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:158:in `connect_addrinfo'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:196:in `block in connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:194:in `each'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:194:in `each_with_index'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:194:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:308:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:385:in `establish_connection'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:115:in `block in connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:114:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:325:in `with_socket_timeout'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:174:in `call_loop'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:44:in `subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:14:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:288:in `_subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:20:in `block in subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:19:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:92:in `block in listen'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:95:in `block in with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:94:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:101:in `without_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:89:in `listen'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:165:in `block in ensure_listener_running'
+web_game_app      | Exiting
+web_game_app      | /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:398:in `rescue in establish_connection': Error connecting to Redis on localhost:6379 (Errno::EADDRNOTAVAIL) (Redis::CannotConnectError)
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:379:in `establish_connection'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:115:in `block in connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:114:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:325:in `with_socket_timeout'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:174:in `call_loop'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:44:in `subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:14:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:288:in `_subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:20:in `block in subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:19:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:92:in `block in listen'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:95:in `block in with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:94:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:101:in `without_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:89:in `listen'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:165:in `block in ensure_listener_running'
+web_game_app      | /usr/local/lib/ruby/3.1.0/socket.rb:1214:in `__connect_nonblock': Cannot assign requested address - connect(2) for [::1]:6379 (Errno::EADDRNOTAVAIL)
+web_game_app      | 	from /usr/local/lib/ruby/3.1.0/socket.rb:1214:in `connect_nonblock'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:158:in `connect_addrinfo'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:196:in `block in connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:194:in `each'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:194:in `each_with_index'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:194:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/connection/ruby.rb:308:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:385:in `establish_connection'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:115:in `block in connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:114:in `connect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:325:in `with_socket_timeout'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:174:in `call_loop'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:44:in `subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/subscribe.rb:14:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:288:in `_subscription'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:20:in `block in subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/commands/pubsub.rb:19:in `subscribe'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:92:in `block in listen'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis/client.rb:344:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:95:in `block in with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `block in synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:265:in `synchronize'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:94:in `with_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/redis-4.8.1/lib/redis.rb:101:in `without_reconnect'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:89:in `listen'
+web_game_app      | 	from /usr/local/bundle/gems/actioncable-7.0.7.2/lib/action_cable/subscription_adapter/redis.rb:165:in `block in ensure_listener_running'
+web_game_app exited with code 1
+```
 
 * ...
