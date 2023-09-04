@@ -18,11 +18,24 @@ services:
       - .app.env
     links:
       - db
+      - redis
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - redis
     stdin_open: true
     tty: true
-    #command: puma
-    # sudo chown -R $USER:$USER .
+    networks: 
+      - web_game_network
+    
+  redis:
+    image: 'redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - web_game_network
+
+networks:
+  web_game_network:
+    driver: bridge
